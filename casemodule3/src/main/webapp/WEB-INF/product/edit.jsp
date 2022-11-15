@@ -817,7 +817,7 @@
                           <tr>
                             <th class="p-md-4">Image</th>
                             <td>
-                              <input type="file" name="file" value="${product.getImage()}" onchange="loadFile(event)">
+                              <input type="file" name="file" onchange="loadFile(event)">
                     </td>
                     <td>
                       <img src="${product.getImage()}" alt="" id="output">

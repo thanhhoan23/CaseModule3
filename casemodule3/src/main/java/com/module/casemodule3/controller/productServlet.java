@@ -260,7 +260,6 @@ public class productServlet extends HttpServlet {
             int category = Integer.parseInt(req.getParameter("idcategory"));
             product.setIdCategory(category);
             String img = req.getParameter("file");
-            product.setImage(img);
 
             ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
             Validator validator = validatorFactory.getValidator();
@@ -284,7 +283,7 @@ public class productServlet extends HttpServlet {
                                 // refines the fileName in case it is an absolute path
                                 fileName = new File(fileName).getName();
                                 part.write("/Users/nguyenthithanhhoan/Downloads/workspace/CaseModule3/casemodule3/src/main/webapp/images/" + fileName);
-                                String servletRealPath = this.getServletContext().getRealPath("/") + "/images" + fileName;
+                                String servletRealPath = this.getServletContext().getRealPath("/") + "images\\" + fileName;
                                 part.write(servletRealPath);
                                 product.setImage("images/" + fileName);
                                 part.write(this.getFolderUpload().getAbsolutePath() + File.separator + fileName);
@@ -293,8 +292,6 @@ public class productServlet extends HttpServlet {
 //                part.write(servletRealPath);
 //                part.write(this.getFolderUpload().getAbsolutePath() + File.separator+fileName);
 //                newUser.setUrlImage("images\\" + fileName);
-                            } else {
-                                product.getImage();
                             }
                         }
                     }
@@ -312,7 +309,7 @@ public class productServlet extends HttpServlet {
                         }
             }
         }
-                    requestDispatcher = req.getRequestDispatcher("/WEB-INF/product/create.jsp");
+                    requestDispatcher = req.getRequestDispatcher("/WEB-INF/product/edit.jsp");
                     requestDispatcher.forward(req, resp);
     }
 
@@ -357,7 +354,7 @@ public class productServlet extends HttpServlet {
                                 // refines the fileName in case it is an absolute path
                                 fileName = new File(fileName).getName();
                                 part.write("/Users/nguyenthithanhhoan/Downloads/workspace/CaseModule3/casemodule3/src/main/webapp/images/" + fileName);
-                                String servletRealPath = this.getServletContext().getRealPath("/") + "/images" + fileName;
+                                String servletRealPath = this.getServletContext().getRealPath("/") + "images\\" + fileName;
                                 part.write(servletRealPath);
                                 product.setImage("images/" + fileName);
                                 part.write(this.getFolderUpload().getAbsolutePath() + File.separator + fileName);

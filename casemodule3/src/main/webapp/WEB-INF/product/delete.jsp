@@ -750,79 +750,90 @@
                     <div class="card-header card-header-divider">Basic Elements<span class="card-subtitle">These are the basic bootstrap form elements</span></div>
                     <div class="card-body">
                       <form method="post"  enctype="multipart/form-data">
-                        <table>
-                          <tr>
-                            <th class="p-md-4">Name Product</th>
-                            <td>
-                              <input type="text" name="name" value="${product.getName()}">
-                            </td>
-                          </tr>
-                          <tr>
-                            <th class="p-md-4">Price</th>
-                            <td>
-                              <input type="number" name="price" value="${product.getPrice()}">
-                            </td>
-                          </tr>
-                          <tr>
-                            <th class="p-md-4">Quantity</th>
-                            <td>
-                              <input type="number" name="quantity" value="${product.getQuantity()}">
-                            </td>
-                          </tr>
-                          <tr>
-                            <th class="p-md-4">Color:</th>
-                            <td>
-                              <select name="idcolor">
-                                <c:forEach items="${listColor}" var="color">
-                                  <option
-                                          <c:if test="${color.getIdColor() == product.getIdColor()}">
-                                            selected
-                                          </c:if>
-                                          value="${color.getIdColor()}">${color.getNameColor()}
-                                  </option>
-                                </c:forEach>
-                              </select>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th class="p-md-4">Size</th>
-                            <td>
-                              <select name="idsize">
-                                <c:forEach items="${requestScope.listSize}" var="size">
-                                  <option
-                                          <c:if test="${size.getIdSize() == product.getIdSize()}">
-                                            selected
-                                          </c:if>
-                                          value="${size.getIdSize()}">${size.getNumberSize()}
-                                  </option>
-                                </c:forEach>
-                              </select>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th class="p-md-4">Category</th>
-                            <td>
-                              <select name="idcategory">
-                                <c:forEach items="${listCategory}" var="category">
-                                  <option
-                                          <c:if test="${category.getIdCategory() == product.getIdCategory()}">selected</c:if>
-                                          value="${category.getIdCategory()}">${category.getTypeProduct()}
-                                  </option>
-                                </c:forEach>
-                              </select>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th class="p-md-4">Image</th>
-                            <td>
-                              <input type="file" name="file"  value="${product.getImage()}">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="p-md-4">
-                              <input type="submit" value="Delete Product">
-                            </td>
-                          </tr>
+                        <table class="row">
+                          <div class="col-lg-6">
+                            <tr>
+                              <th class="p-md-4">Name Product</th>
+                              <td>
+                                <input type="text" name="name" value="${product.getName()}" readonly>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th class="p-md-4">Price</th>
+                              <td>
+                                <input type="number" name="price" value="${product.getPrice()}" readonly>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th class="p-md-4">Quantity</th>
+                              <td>
+                                <input type="number" name="quantity" value="${product.getQuantity()}" readonly>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th class="p-md-4">Color:</th>
+                              <td>
+                                <select name="idcolor">
+                                  <c:forEach items="${listColor}" var="color">
+                                    <option
+                                            <c:if test="${color.getIdColor() == product.getIdColor()}">
+                                              selected
+                                            </c:if>
+                                            value="${color.getIdColor()}">${color.getNameColor()}
+                                    </option>
+                                  </c:forEach>
+                                </select>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th class="p-md-4">Size</th>
+                              <td>
+                                <select name="idsize">
+                                  <c:forEach items="${requestScope.listSize}" var="size">
+                                    <option
+                                            <c:if test="${size.getIdSize() == product.getIdSize()}">
+                                              selected
+                                            </c:if>
+                                            value="${size.getIdSize()}">${size.getNumberSize()}
+                                    </option>
+                                  </c:forEach>
+                                </select>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th class="p-md-4">Category</th>
+                              <td>
+                                <select name="idcategory">
+                                  <c:forEach items="${listCategory}" var="category">
+                                    <option
+                                            <c:if test="${category.getIdCategory() == product.getIdCategory()}">selected</c:if>
+                                            value="${category.getIdCategory()}">${category.getTypeProduct()}
+                                    </option>
+                                  </c:forEach>
+                                </select>
+                              </td>
+                            </tr>
+
+                          </div>
+                          <div class="col-lg-6">
+                            <tr>
+                              <th class="p-md-4">Image</th>
+                              <td>
+                                <input type="file" name="file" onchange="loadFile(event)">
+                              </td>
+                              <td>
+                                <img src="${product.getImage()}" alt="" id="output">
+                              </td>
+                            </tr>
+
+                          </div>
+                          <div>
+                            <tr>
+                              <td class="p-md-4">
+                                <input type="submit" value="Delete Product">
+                              </td>
+                            </tr>
+                          </div>
 
                         </table>
                       </form>
@@ -832,23 +843,9 @@
               </div>
             </div>
           </div>
-
-          <!--new product area start-->
-
           <!--banner area start-->
           <div class="banner_area banner_two">
-
           </div>
-          <!--banner area end-->
-
-          <!--featured product area start-->
-
-          <!--featured product area start-->
-
-          <!--blog area start-->
-
-          <!--blog area end-->
-
           <!--brand logo strat-->
           <div class="brand_logo brand_two">
             <div class="block_title">
@@ -856,12 +853,6 @@
             </div>
             <div class="row">
               <div class="brand_active owl-carousel owl-loaded owl-drag">
-
-
-
-
-
-
                 <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1200px, 0px, 0px); transition: all 0s ease 0s; width: 3000px;"><div class="owl-item cloned" style="width: 200px;"><div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1200px, 0px, 0px); transition: all 0s ease 0s; width: 3600px;"><div class="owl-item cloned" style="width: 200px;"><div class="col-lg-2">
                   <div class="single_brand">
                     <a href="#"><img src="/assets\img\brand\brand1.jpg" alt=""></a>
@@ -1346,7 +1337,15 @@
   <script src="/assets\js\main.js"></script>
   <!-- Code injected by live-server -->
 
-
+  <script>
+    var loadFile = function(event) {
+      var output = document.getElementById('output');
+      output.src = URL.createObjectURL(event.target.files[0]);
+      output.onload = function() {
+        URL.revokeObjectURL(output.src) // free memory
+      }
+    };
+  </script>
 
   <!-- Code injected by live-server -->
 

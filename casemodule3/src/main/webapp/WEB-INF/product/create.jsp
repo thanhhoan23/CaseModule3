@@ -818,7 +818,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="p-md-4">
-                                                    <input type="submit" value="Add Product">
+                                                    <input  style="background-color: #0c5460;width: 100px;color: whitesmoke" type="submit" value="Add Product">
                                                 </td>
                                             </tr>
 
