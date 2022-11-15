@@ -11,30 +11,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="/assets\img\favicon.png">
+  <style>
+    /*.table>thead>tr {*/
+    /*  background-color:darkslategray;*/
+    /*  color: white;*/
+    /*}*/
+    .table>tbody>tr:hover {
+      background-color: darkgrey;
+      cursor: pointer;
+    }
+  </style>
 
   <!-- all css here -->
-  <link rel="stylesheet" href="/assets\css\bootstrap.min.css">
-  <link rel="stylesheet" href="/assets\css\plugin.css">
-  <link rel="stylesheet" href="/assets\css\bundle.css">
-  <link rel="stylesheet" href="/assets\css\style.css">
-  <link rel="stylesheet" href="/assets\css\responsive.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
-  <script src="/assets\js\vendor\modernizr-2.8.3.min.js"></script>
-  <style>
-    .banner_slider.slider_two .single_slider {
-      height: 250px;
-    }
-    .card-body>table>tbody>tr>td{
-      justify-content: center;
-    }
-    .row show{
-      background-color:#17a2b8 ;
-    }
-    .main_menu nav > ul > li.active > a, .main_menu nav > ul > li:hover > a {
-      background-color: #0c5460;
-    }
-
-  </style>
+  <jsp:include page="/WEB-INF/layout/linkcss.jsp"></jsp:include>
 
 </head>
 <body _c_t_common="1" _c_t_j1="1">
@@ -42,733 +31,53 @@
 
 <!--pos page start-->
 <div class="pos_page">
-  <div class="container">
+  <div class="container-fluid">
     <!--pos page inner-->
     <div class="pos_page_inner">
       <!--header area -->
-      <div class="header_area">
-        <!--header top-->
-        <div class="header_top">
-          <div class="row align-items-center">
-            <div class="col-lg-6 col-md-6">
-              <div class="switcher">
-                <ul>
-                  <li class="languages"><a href="#"><img src="/assets\img\logo\fontlogo.jpg" alt=""> English <i class="fa fa-angle-down"></i></a>
-                    <ul class="dropdown_languages">
-                      <li><a href="#"><img src="/assets\img\logo\fontlogo.jpg" alt=""> English</a></li>
-                      <li><a href="#"><img src="/assets\img\logo\fontlogo2.jpg" alt=""> French </a></li>
-                    </ul>
-                  </li>
-
-                  <li class="currency"><a href="#"> Currency : $ <i class="fa fa-angle-down"></i></a>
-                    <ul class="dropdown_currency">
-                      <li><a href="#"> Dollar (USD)</a></li>
-                      <li><a href="#"> Euro (EUR)  </a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-              <div class="header_links">
-                <ul>
-                  <li><a href="contact.html" title="Contact">Contact</a></li>
-                  <li><a href="wishlist.html" title="wishlist">My wishlist</a></li>
-                  <li><a href="my-account.html" title="My account">My account</a></li>
-                  <li><a href="cart.html" title="My cart">My cart</a></li>
-                  <li><a href="login.html" title="Login">Login</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--header top end-->
-
-        <!--header middel-->
-        <div class="header_middel">
-          <div class="row align-items-center">
-            <!--logo start-->
-            <div class="col-lg-3 col-md-3">
-              <div class="logo">
-                <a href="index.html"><img src="/assets\img\logo\logo.jpg.png" alt=""></a>
-              </div>
-            </div>
-            <!--logo end-->
-            <div class="col-lg-9 col-md-9">
-              <div class="header_right_info">
-                <div class="search_bar">
-                  <form action="#">
-                    <input placeholder="Search..." type="text">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                  </form>
-                </div>
-                <div class="shopping_cart">
-                  <a href="#"><i class="fa fa-shopping-cart"></i> 2Items - $209.44 <i class="fa fa-angle-down"></i></a>
-
-                  <!--mini cart-->
-                  <div class="mini_cart">
-                    <div class="cart_item">
-                      <div class="cart_img">
-                        <a href="#"><img src="/assets\img\cart\cart.jpg" alt=""></a>
-                      </div>
-                      <div class="cart_info">
-                        <a href="#">lorem ipsum dolor</a>
-                        <span class="cart_price">$115.00</span>
-                        <span class="quantity">Qty: 1</span>
-                      </div>
-                      <div class="cart_remove">
-                        <a title="Remove this item" href="#"><i class="fa fa-times-circle"></i></a>
-                      </div>
-                    </div>
-                    <div class="cart_item">
-                      <div class="cart_img">
-                        <a href="#"><img src="/assets\img\cart\cart2.jpg" alt=""></a>
-                      </div>
-                      <div class="cart_info">
-                        <a href="#">Quisque ornare dui</a>
-                        <span class="cart_price">$105.00</span>
-                        <span class="quantity">Qty: 1</span>
-                      </div>
-                      <div class="cart_remove">
-                        <a title="Remove this item" href="#"><i class="fa fa-times-circle"></i></a>
-                      </div>
-                    </div>
-                    <div class="shipping_price">
-                      <span> Shipping </span>
-                      <span>  $7.00  </span>
-                    </div>
-                    <div class="total_price">
-                      <span> total </span>
-                      <span class="prices">  $227.00  </span>
-                    </div>
-                    <div class="cart_button">
-                      <a href="checkout.html"> Check out</a>
-                    </div>
-                  </div>
-                  <!--mini cart end-->
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--header middel end-->
-        <div class="header_bottom">
-          <div class="row show" style="background-color: #0c5460">
-            <div class="col-12">
-              <div class="main_menu_inner">
-                <div class="main_menu d-none d-lg-block">
-                  <nav>
-                    <ul>
-                      <li class="active"><a href="index.html">Home</a>
-                        <div class="mega_menu jewelry">
-                          <div class="mega_items jewelry">
-                            <ul>
-                              <li><a href="index.html">Home 1</a></li>
-                              <li><a href="index-2.html">Home 2</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </li>
-                      <li><a href="shop.html">shop</a>
-                        <div class="mega_menu jewelry">
-                          <div class="mega_items jewelry">
-                            <ul>
-                              <li><a href="shop-list.html">shop list</a></li>
-                              <li><a href="shop-fullwidth.html">shop Full Width Grid</a></li>
-                              <li><a href="shop-fullwidth-list.html">shop Full Width list</a></li>
-                              <li><a href="shop-sidebar.html">shop Right Sidebar</a></li>
-                              <li><a href="shop-sidebar-list.html">shop list Right Sidebar</a></li>
-                              <li><a href="single-product.html">Product Details</a></li>
-                              <li><a href="single-product-sidebar.html">Product sidebar</a></li>
-                              <li><a href="single-product-video.html">Product Details video</a></li>
-                              <li><a href="single-product-gallery.html">Product Details Gallery</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </li>
-                      <li><a href="#">women</a>
-                        <div class="mega_menu">
-                          <div class="mega_top fix">
-                            <div class="mega_items">
-                              <h3><a href="#">Accessories</a></h3>
-                              <ul>
-                                <li><a href="#">Cocktai</a></li>
-                                <li><a href="#">day</a></li>
-                                <li><a href="#">Evening</a></li>
-                                <li><a href="#">Sundresses</a></li>
-                                <li><a href="#">Belts</a></li>
-                                <li><a href="#">Sweets</a></li>
-                              </ul>
-                            </div>
-                            <div class="mega_items">
-                              <h3><a href="#">HandBags</a></h3>
-                              <ul>
-                                <li><a href="#">Accessories</a></li>
-                                <li><a href="#">Hats and Gloves</a></li>
-                                <li><a href="#">Lifestyle</a></li>
-                                <li><a href="#">Bras</a></li>
-                                <li><a href="#">Scarves</a></li>
-                                <li><a href="#">Small Leathers</a></li>
-                              </ul>
-                            </div>
-                            <div class="mega_items">
-                              <h3><a href="#">Tops</a></h3>
-                              <ul>
-                                <li><a href="#">Evening</a></li>
-                                <li><a href="#">Long Sleeved</a></li>
-                                <li><a href="#">Shrot Sleeved</a></li>
-                                <li><a href="#">Tanks and Camis</a></li>
-                                <li><a href="#">Sleeveless</a></li>
-                                <li><a href="#">Sleeveless</a></li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div class="mega_bottom fix">
-                            <div class="mega_thumb">
-                              <a href="#"><img src="/assets\img\banner\banner1.jpg" alt=""></a>
-                            </div>
-                            <div class="mega_thumb">
-                              <a href="#"><img src="/assets\img\banner\banner2.jpg" alt=""></a>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-
-                      <li><a href="#">pages</a>
-                        <div class="mega_menu">
-                          <div class="mega_top fix">
-                            <div class="mega_items">
-                              <h3><a href="#">Column1</a></h3>
-                              <ul>
-                                <li><a href="portfolio.html">Portfolio</a></li>
-                                <li><a href="portfolio-details.html">single portfolio </a></li>
-                                <li><a href="about.html">About Us </a></li>
-                                <li><a href="about-2.html">About Us 2</a></li>
-                                <li><a href="services.html">Service </a></li>
-                                <li><a href="my-account.html">my account </a></li>
-                              </ul>
-                            </div>
-                            <div class="mega_items">
-                              <h3><a href="#">Column2</a></h3>
-                              <ul>
-                                <li><a href="blog.html">Blog </a></li>
-                                <li><a href="blog-details.html">Blog  Details </a></li>
-                                <li><a href="blog-fullwidth.html">Blog FullWidth</a></li>
-                                <li><a href="blog-sidebar.html">Blog  Sidebar</a></li>
-                                <li><a href="faq.html">Frequently Questions</a></li>
-                                <li><a href="404.html">404</a></li>
-                              </ul>
-                            </div>
-                            <div class="mega_items">
-                              <h3><a href="#">Column3</a></h3>
-                              <ul>
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="cart.html">cart</a></li>
-                                <li><a href="checkout.html">Checkout  </a></li>
-                                <li><a href="wishlist.html">Wishlist</a></li>
-                                <li><a href="login.html">Login</a></li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-
-                      <li><a href="blog.html">blog</a>
-                        <div class="mega_menu jewelry">
-                          <div class="mega_items jewelry">
-                            <ul>
-                              <li><a href="blog-details.html">blog details</a></li>
-                              <li><a href="blog-fullwidth.html">blog fullwidth</a></li>
-                              <li><a href="blog-sidebar.html">blog sidebar</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </li>
-                      <li><a href="contact.html">contact us</a></li>
-
-                    </ul>
-                  </nav>
-                </div>
-                <div class="mobile-menu d-lg-none mean-container"><div class="mean-bar"><a href="#nav" class="meanmenu-reveal" style="background:;color:;"><span></span><span></span><span></span></a><nav class="mean-nav">
-                  <ul style="display: none;">
-                    <li><a href="index.html">Home</a>
-                      <div>
-                        <div>
-                          <ul style="display: none;">
-                            <li><a href="index.html">Home 1</a></li>
-                            <li><a href="index-2.html">Home 2</a></li>
-                          </ul>
-                          <a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a></div>
-                      </div>
-                    </li>
-                    <li><a href="shop.html">shop</a>
-                      <div>
-                        <div>
-                          <ul style="display: none;">
-                            <li><a href="shop-list.html">shop list</a></li>
-                            <li><a href="shop-fullwidth.html">shop Full Width Grid</a></li>
-                            <li><a href="shop-fullwidth-list.html">shop Full Width list</a></li>
-                            <li><a href="shop-sidebar.html">shop Right Sidebar</a></li>
-                            <li><a href="shop-sidebar-list.html">shop list Right Sidebar</a></li>
-                            <li><a href="single-product.html">Product Details</a></li>
-                            <li><a href="single-product-sidebar.html">Product sidebar</a></li>
-                            <li><a href="single-product-video.html">Product Details video</a></li>
-                            <li><a href="single-product-gallery.html">Product Details Gallery</a></li>
-                          </ul>
-                          <a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a></div>
-                      </div>
-                    </li>
-                    <li><a href="#">women</a>
-                      <div>
-                        <div>
-                          <div>
-                            <h3><a href="#">Accessories</a></h3>
-                            <ul style="display: none;">
-                              <li><a href="#">Cocktai</a></li>
-                              <li><a href="#">day</a></li>
-                              <li><a href="#">Evening</a></li>
-                              <li><a href="#">Sundresses</a></li>
-                              <li><a href="#">Belts</a></li>
-                              <li><a href="#">Sweets</a></li>
-                            </ul>
-                            <a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a></div>
-                          <div>
-                            <h3><a href="#">HandBags</a></h3>
-                            <ul style="display: none;">
-                              <li><a href="#">Accessories</a></li>
-                              <li><a href="#">Hats and Gloves</a></li>
-                              <li><a href="#">Lifestyle</a></li>
-                              <li><a href="#">Bras</a></li>
-                              <li><a href="#">Scarves</a></li>
-                              <li><a href="#">Small Leathers</a></li>
-                            </ul>
-                            <a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a></div>
-                          <div>
-                            <h3><a href="#">Tops</a></h3>
-                            <ul style="display: none;">
-                              <li><a href="#">Evening</a></li>
-                              <li><a href="#">Long Sleeved</a></li>
-                              <li><a href="#">Shrot Sleeved</a></li>
-                              <li><a href="#">Tanks and Camis</a></li>
-                              <li><a href="#">Sleeveless</a></li>
-                              <li><a href="#">Sleeveless</a></li>
-                            </ul>
-                            <a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a></div>
-                        </div>
-                        <div>
-                          <div>
-                            <a href="#"><img src="/assets\img\banner\banner1.jpg" alt=""></a>
-                          </div>
-                          <div>
-                            <a href="#"><img src="/assets\img\banner\banner2.jpg" alt=""></a>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                    <li><a href="#">men</a>
-                      <div>
-                        <div>
-                          <div>
-                            <h3><a href="#">Rings</a></h3>
-                            <ul style="display: none;">
-                              <li><a href="#">Platinum Rings</a></li>
-                              <li><a href="#">Gold Ring</a></li>
-                              <li><a href="#">Silver Ring</a></li>
-                              <li><a href="#">Tungsten Ring</a></li>
-                              <li><a href="#">Sweets</a></li>
-                            </ul>
-                            <a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a></div>
-                          <div>
-                            <h3><a href="#">Bands</a></h3>
-                            <ul style="display: none;">
-                              <li><a href="#">Platinum Bands</a></li>
-                              <li><a href="#">Gold Bands</a></li>
-                              <li><a href="#">Silver Bands</a></li>
-                              <li><a href="#">Silver Bands</a></li>
-                              <li><a href="#">Sweets</a></li>
-                            </ul>
-                            <a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a></div>
-                          <div>
-                            <a href="#"><img src="/assets\img\banner\banner3.jpg" alt=""></a>
-                          </div>
-                        </div>
-
-                      </div>
-                    </li>
-                    <li><a href="#">pages</a>
-                      <div>
-                        <div>
-                          <div>
-                            <h3><a href="#">Column1</a></h3>
-                            <ul style="display: none;">
-                              <li><a href="portfolio.html">Portfolio</a></li>
-                              <li><a href="portfolio-details.html">single portfolio </a></li>
-                              <li><a href="about.html">About Us </a></li>
-                              <li><a href="about-2.html">About Us 2</a></li>
-                              <li><a href="services.html">Service </a></li>
-                              <li><a href="my-account.html">my account </a></li>
-                            </ul>
-                            <a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a></div>
-                          <div>
-                            <h3><a href="#">Column2</a></h3>
-                            <ul style="display: none;">
-                              <li><a href="blog.html">Blog </a></li>
-                              <li><a href="blog-details.html">Blog  Details </a></li>
-                              <li><a href="blog-fullwidth.html">Blog FullWidth</a></li>
-                              <li><a href="blog-sidebar.html">Blog  Sidebar</a></li>
-                              <li><a href="faq.html">Frequently Questions</a></li>
-                              <li><a href="404.html">404</a></li>
-                            </ul>
-                            <a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a></div>
-                          <div>
-                            <h3><a href="#">Column3</a></h3>
-                            <ul style="display: none;">
-                              <li><a href="contact.html">Contact</a></li>
-                              <li><a href="cart.html">cart</a></li>
-                              <li><a href="checkout.html">Checkout  </a></li>
-                              <li><a href="wishlist.html">Wishlist</a></li>
-                              <li><a href="login.html">Login</a></li>
-                            </ul>
-                            <a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a></div>
-                        </div>
-                      </div>
-                    </li>
-
-                    <li><a href="blog.html">blog</a>
-                      <div>
-                        <div>
-                          <ul style="display: none;">
-                            <li><a href="blog-details.html">blog details</a></li>
-                            <li><a href="blog-fullwidth.html">blog fullwidth</a></li>
-                            <li><a href="blog-sidebar.html">blog sidebar</a></li>
-                          </ul>
-                          <a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a><a class="mean-expand" href="#" style="font-size: 18px">+</a></div>
-                      </div>
-                    </li>
-                    <li class="mean-last"><a href="contact.html">contact us</a></li>
-
-                  </ul>
-                </nav></div>
-                  <div class="mean-push"></div><nav style="display: none;">
-                    <ul>
-                      <li><a href="index.html">Home</a>
-                        <div>
-                          <div>
-                            <ul>
-                              <li><a href="index.html">Home 1</a></li>
-                              <li><a href="index-2.html">Home 2</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </li>
-                      <li><a href="shop.html">shop</a>
-                        <div>
-                          <div>
-                            <ul>
-                              <li><a href="shop-list.html">shop list</a></li>
-                              <li><a href="shop-fullwidth.html">shop Full Width Grid</a></li>
-                              <li><a href="shop-fullwidth-list.html">shop Full Width list</a></li>
-                              <li><a href="shop-sidebar.html">shop Right Sidebar</a></li>
-                              <li><a href="shop-sidebar-list.html">shop list Right Sidebar</a></li>
-                              <li><a href="single-product.html">Product Details</a></li>
-                              <li><a href="single-product-sidebar.html">Product sidebar</a></li>
-                              <li><a href="single-product-video.html">Product Details video</a></li>
-                              <li><a href="single-product-gallery.html">Product Details Gallery</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </li>
-                      <li><a href="#">women</a>
-                        <div>
-                          <div>
-                            <div>
-                              <h3><a href="#">Accessories</a></h3>
-                              <ul>
-                                <li><a href="#">Cocktai</a></li>
-                                <li><a href="#">day</a></li>
-                                <li><a href="#">Evening</a></li>
-                                <li><a href="#">Sundresses</a></li>
-                                <li><a href="#">Belts</a></li>
-                                <li><a href="#">Sweets</a></li>
-                              </ul>
-                            </div>
-                            <div>
-                              <h3><a href="#">HandBags</a></h3>
-                              <ul>
-                                <li><a href="#">Accessories</a></li>
-                                <li><a href="#">Hats and Gloves</a></li>
-                                <li><a href="#">Lifestyle</a></li>
-                                <li><a href="#">Bras</a></li>
-                                <li><a href="#">Scarves</a></li>
-                                <li><a href="#">Small Leathers</a></li>
-                              </ul>
-                            </div>
-                            <div>
-                              <h3><a href="#">Tops</a></h3>
-                              <ul>
-                                <li><a href="#">Evening</a></li>
-                                <li><a href="#">Long Sleeved</a></li>
-                                <li><a href="#">Shrot Sleeved</a></li>
-                                <li><a href="#">Tanks and Camis</a></li>
-                                <li><a href="#">Sleeveless</a></li>
-                                <li><a href="#">Sleeveless</a></li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <a href="#"><img src="/assets\img\banner\banner1.jpg" alt=""></a>
-                            </div>
-                            <div>
-                              <a href="#"><img src="/assets\img\banner\banner2.jpg" alt=""></a>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li><a href="#">men</a>
-                        <div>
-                          <div>
-                            <div>
-                              <h3><a href="#">Rings</a></h3>
-                              <ul>
-                                <li><a href="#">Platinum Rings</a></li>
-                                <li><a href="#">Gold Ring</a></li>
-                                <li><a href="#">Silver Ring</a></li>
-                                <li><a href="#">Tungsten Ring</a></li>
-                                <li><a href="#">Sweets</a></li>
-                              </ul>
-                            </div>
-                            <div>
-                              <h3><a href="#">Bands</a></h3>
-                              <ul>
-                                <li><a href="#">Platinum Bands</a></li>
-                                <li><a href="#">Gold Bands</a></li>
-                                <li><a href="#">Silver Bands</a></li>
-                                <li><a href="#">Silver Bands</a></li>
-                                <li><a href="#">Sweets</a></li>
-                              </ul>
-                            </div>
-                            <div>
-                              <a href="#"><img src="/assets\img\banner\banner3.jpg" alt=""></a>
-                            </div>
-                          </div>
-
-                        </div>
-                      </li>
-                      <li><a href="#">pages</a>
-                        <div>
-                          <div>
-                            <div>
-                              <h3><a href="#">Column1</a></h3>
-                              <ul>
-                                <li><a href="portfolio.html">Portfolio</a></li>
-                                <li><a href="portfolio-details.html">single portfolio </a></li>
-                                <li><a href="about.html">About Us </a></li>
-                                <li><a href="about-2.html">About Us 2</a></li>
-                                <li><a href="services.html">Service </a></li>
-                                <li><a href="my-account.html">my account </a></li>
-                              </ul>
-                            </div>
-                            <div>
-                              <h3><a href="#">Column2</a></h3>
-                              <ul>
-                                <li><a href="blog.html">Blog </a></li>
-                                <li><a href="blog-details.html">Blog  Details </a></li>
-                                <li><a href="blog-fullwidth.html">Blog FullWidth</a></li>
-                                <li><a href="blog-sidebar.html">Blog  Sidebar</a></li>
-                                <li><a href="faq.html">Frequently Questions</a></li>
-                                <li><a href="404.html">404</a></li>
-                              </ul>
-                            </div>
-                            <div>
-                              <h3><a href="#">Column3</a></h3>
-                              <ul>
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="cart.html">cart</a></li>
-                                <li><a href="checkout.html">Checkout  </a></li>
-                                <li><a href="wishlist.html">Wishlist</a></li>
-                                <li><a href="login.html">Login</a></li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-
-                      <li><a href="blog.html">blog</a>
-                        <div>
-                          <div>
-                            <ul>
-                              <li><a href="blog-details.html">blog details</a></li>
-                              <li><a href="blog-fullwidth.html">blog fullwidth</a></li>
-                              <li><a href="blog-sidebar.html">blog sidebar</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </li>
-                      <li><a href="contact.html">contact us</a></li>
-
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <jsp:include page="/WEB-INF/layout/headerarea.jsp"></jsp:include>
       <!--header end -->
 
       <!--pos home section-->
       <div class="pos_home_section">
-        <div class="row">
-<%--          Day roiiii--%>
-          <!--banner slider start-->
-          <div class="col-12">
-            <div class="banner_slider slider_two">
-              <div class="slider_active owl-carousel owl-loaded owl-drag">
+<%--        banner start--%>
+        <jsp:include page="/WEB-INF/layout/bannarstart.jsp"></jsp:include>
 
-
-
-                <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-2340px, 0px, 0px); transition: all 0s ease 0s; width: 8190px;"><div class="owl-item cloned" style="width: 1170px;"><div class="owl-nav disabled"><div class="owl-prev">prev</div><div class="owl-next">next</div></div></div><div class="owl-item cloned" style="width: 1170px;"><div class="owl-dots"><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div><div class="owl-dot"><span></span></div></div></div><div class="owl-item active" style="width: 1170px;"><div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-2340px, 0px, 0px); transition: all 0s ease 0s; width: 8190px;"><div class="owl-item cloned" style="width: 1170px;"><div class="single_slider" style="background-image: url(/assets/img/slider/slide_4.png)">
-                  <div class="slider_content">
-                    <div class="slider_content_inner">
-                      <h1>fashion for you</h1>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Cumque eligendi quia, ratione porro, nemo non.</p>
-                      <a href="#">shop now</a>
-                    </div>
-                  </div>
-                </div></div><div class="owl-item cloned" style="width: 1170px;"><div class="single_slider" style="background-image: url(/assets/img/slider/slider_3.png)">
-                  <div class="slider_content">
-                    <div class="slider_content_inner">
-                      <h1>fashion for you</h1>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Cumque eligendi quia, ratione porro, nemo non.</p>
-                      <a href="#">shop now</a>
-                    </div>
-                  </div>
-                </div></div><div class="owl-item active" style="width: 1170px;"><div class="single_slider" style="background-image: url(/assets/img/slider/slider_2.png)">
-                  <div class="slider_content">
-                    <div class="slider_content_inner">
-                      <h1>fashion for you</h1>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Cumque eligendi quia, ratione porro, nemo non.</p>
-                      <a href="#">shop now</a>
-                    </div>
-                  </div>
-                </div></div><div class="owl-item" style="width: 1170px;"><div class="single_slider" style="background-image: url(/assets/img/slider/slide_4.png)">
-                  <div class="slider_content">
-                    <div class="slider_content_inner">
-                      <h1>fashion for you</h1>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Cumque eligendi quia, ratione porro, nemo non.</p>
-                      <a href="#">shop now</a>
-                    </div>
-                  </div>
-                </div></div><div class="owl-item" style="width: 1170px;"><div class="single_slider" style="background-image: url(/assets/img/slider/slider_3.png)">
-                  <div class="slider_content">
-                    <div class="slider_content_inner">
-                      <h1>fashion for you</h1>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Cumque eligendi quia, ratione porro, nemo non.</p>
-                      <a href="#">shop now</a>
-                    </div>
-                  </div>
-                </div></div><div class="owl-item cloned" style="width: 1170px;"><div class="single_slider" style="background-image: url(/assets/img/slider/slider_2.png)">
-                  <div class="slider_content">
-                    <div class="slider_content_inner">
-                      <h1>fashion for you</h1>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Cumque eligendi quia, ratione porro, nemo non.</p>
-                      <a href="#">shop now</a>
-                    </div>
-                  </div>
-                </div></div><div class="owl-item cloned" style="width: 1170px;"><div class="single_slider" style="background-image: url(/assets/img/slider/slide_4.png)">
-                  <div class="slider_content">
-                    <div class="slider_content_inner">
-                      <h1>fashion for you</h1>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Cumque eligendi quia, ratione porro, nemo non.</p>
-                      <a href="#">shop now</a>
-                    </div>
-                  </div>
-                </div></div></div></div></div><div class="owl-item" style="width: 1170px;"><div class="owl-nav disabled"><div class="owl-prev">prev</div><div class="owl-next">next</div></div></div><div class="owl-item" style="width: 1170px;"><div class="owl-dots"><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div><div class="owl-dot"><span></span></div></div></div><div class="owl-item cloned" style="width: 1170px;"><div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-2340px, 0px, 0px); transition: all 0s ease 0s; width: 8190px;"><div class="owl-item cloned" style="width: 1170px;"><div class="single_slider" style="background-image: url(/assets/img/slider/slide_4.png)">
-                  <div class="slider_content">
-                    <div class="slider_content_inner">
-                      <h1>fashion for you</h1>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Cumque eligendi quia, ratione porro, nemo non.</p>
-                      <a href="#">shop now</a>
-                    </div>
-                  </div>
-                </div></div><div class="owl-item cloned" style="width: 1170px;"><div class="single_slider" style="background-image: url(/assets/img/slider/slider_3.png)">
-                  <div class="slider_content">
-                    <div class="slider_content_inner">
-                      <h1>fashion for you</h1>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Cumque eligendi quia, ratione porro, nemo non.</p>
-                      <a href="#">shop now</a>
-                    </div>
-                  </div>
-                </div></div><div class="owl-item active" style="width: 1170px;"><div class="single_slider" style="background-image: url(/assets/img/slider/slider_2.png)">
-                  <div class="slider_content">
-                    <div class="slider_content_inner">
-                      <h1>fashion for you</h1>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Cumque eligendi quia, ratione porro, nemo non.</p>
-                      <a href="#">shop now</a>
-                    </div>
-                  </div>
-                </div></div><div class="owl-item" style="width: 1170px;"><div class="single_slider" style="background-image: url(/assets/img/slider/slide_4.png)">
-                  <div class="slider_content">
-                    <div class="slider_content_inner">
-                      <h1>fashion for you</h1>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Cumque eligendi quia, ratione porro, nemo non.</p>
-                      <a href="#">shop now</a>
-                    </div>
-                  </div>
-                </div></div><div class="owl-item" style="width: 1170px;"><div class="single_slider" style="background-image: url(/assets/img/slider/slider_3.png)">
-                  <div class="slider_content">
-                    <div class="slider_content_inner">
-                      <h1>fashion for you</h1>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Cumque eligendi quia, ratione porro, nemo non.</p>
-                      <a href="#">shop now</a>
-                    </div>
-                  </div>
-                </div></div><div class="owl-item cloned" style="width: 1170px;"><div class="single_slider" style="background-image: url(/assets/img/slider/slider_2.png)">
-                  <div class="slider_content">
-                    <div class="slider_content_inner">
-                      <h1>fashion for you</h1>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Cumque eligendi quia, ratione porro, nemo non.</p>
-                      <a href="#">shop now</a>
-                    </div>
-                  </div>
-                </div></div><div class="owl-item cloned" style="width: 1170px;"><div class="single_slider" style="background-image: url(/assets/img/slider/slide_4.png)">
-                  <div class="slider_content">
-                    <div class="slider_content_inner">
-                      <h1>fashion for you</h1>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Cumque eligendi quia, ratione porro, nemo non.</p>
-                      <a href="#">shop now</a>
-                    </div>
-                  </div>
-                </div></div></div></div></div><div class="owl-item cloned" style="width: 1170px;"><div class="owl-nav disabled"><div class="owl-prev">prev</div><div class="owl-next">next</div></div></div></div></div><div class="owl-nav disabled"><div class="owl-prev">prev</div><div class="owl-next">next</div></div><div class="owl-dots"><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div><div class="owl-dot"><span></span></div></div></div>
-            </div>
-            <!--banner slider start-->
-          </div>
-        </div>
         <!--new product area start-->
         <div class="new_product_area product_two">
           <div class="row">
             <div class="col-12">
-              <h3> <a href="/product?action=create"> <i class="fa-solid fa-plus"></i>Add New Product</a></h3>
-<%--              <h3> <a href="/product?action=detailproduct">Detail Product</a></h3>--%>
+              <div class="row" style="margin-left: 10px">
+                <div class="col-lg-6">
+                  <h3> <a href="/product?action=create"><button class="btn btn-dark">Add Product</button></a></h3>
+                </div>
 
-              <div class="row" style="height:100px">
+                <div class="input-group col-lg-6">
+                  <form action="/product">
+                    <div class="row">
+                      <input style="width: 300px; height: 50px" type="text" class="form-control rounded" placeholder="Search..." aria-label="Search"
+                             aria-describedby="search-addon" name="search" id="myInput" value="${search}"/>
+                      <button style="height: 50px"  type="get" class="btn btn-dark">Search</button>
+                    </div>
+                  </form>
+                </div>
+
+              </div>
                 <div class="card-body">
                   <table class="table">
                     <thead>
                     <tr>
-                      <th style="width:10px;">#</th>
-                      <th style="width:10px;">Name</th>
-                      <th class="number" style="width:10px;">Price</th>
-                      <th class="number" style="width:10px;">Quantity</th>
-                      <th style="width:5px;">Color</th>
-                      <th class="number" style="width:5px;">Size</th>
-                      <th style="width:10px;">Category</th>
-                      <th style="width:10px;">Create Date</th>
-                      <th style="width:10px;">Create Update</th>
-                      <th style="width:10px;">Image</th>
-                      <th class="actions" style="width:10px;">Action</th>
+                      <th>Id</th>
+                      <th>Name</th>
+                      <th>Price</th>
+                      <th>Quantity</th>
+                      <th>Color</th>
+                      <th>Size</th>
+                      <th>Category</th>
+                      <th>Create Date</th>
+                      <th>Create Update</th>
+                      <th>Image</th>
+                      <th class="actions text-center">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -776,18 +85,18 @@
                       <tr>
                         <td><c:out value="${product.getIdProduct()}"/></td>
                         <td><c:out value="${product.getName()}"/></td>
-                        <td><c:out value="${product.getPrice()}"/></td>
-                        <td><c:out value="${product.getQuantity()}"/></td>
+                        <td class="text-right"><c:out value="${product.getPrice()}"/></td>
+                        <td class="text-center"><c:out value="${product.getQuantity()}"/></td>
 
                         <c:forEach items="${requestScope['listColor']}" var="color">
                           <c:if test="${color.getIdColor() == product.getIdColor()}">
-                            <td>${color.getNameColor()}</td>
+                            <td class="text-center">${color.getNameColor()}</td>
                           </c:if>
                         </c:forEach>
 
                         <c:forEach items="${listSize}" var="size">
                           <c:if test="${product.getIdSize() == size.getIdSize()}">
-                            <td>${size.getNumberSize()}</td>
+                            <td class="text-center">${size.getNumberSize()}</td>
                           </c:if>
                         </c:forEach>
 
@@ -796,170 +105,67 @@
                             <td>${category.getTypeProduct()}</td>
                           </c:if>
                         </c:forEach>
-                        <td><c:out value="${product.getCreateTimeDate()}"/></td>
-                        <td><c:out value="${product.getUpdateTimeDate()}"/></td>
-<%--                        <td><c:out value="${product.getImage()}"/></td>--%>
+                        <td class="text-right"><c:out value="${product.getCreateTimeDate()}"/></td>
+                        <td class="text-right"><c:out value="${product.getUpdateTimeDate()}"/></td>
+                          <%--                        <td><c:out value="${product.getImage()}"/></td>--%>
                         <td>
                           <img style="height: 20px" src="${product.getImage()}">
                         </td>
                         <td>
                           <button type="button" style="width:70px" class="btn btn-success m-2"> <a style="color:white" href="/product?action=edit&id=${product.getIdProduct()}">Edit</a></button>
-                          <br>
-<%--                          <a href="/product?action=edit&id=${product.getIdProduct()}">Edit</a>--%>
+                            <%--                          <a href="/product?action=edit&id=${product.getIdProduct()}">Edit</a>--%>
                           <button type="button" class="btn btn-danger"><a style="color: white" href="/product?action=delete&id=${product.getIdProduct()}">Delete</a></button>
-<%--                          <a href="/product?action=delete&id=${product.getIdProduct()}">Delete</a>--%>
+                            <%--                          <a href="/product?action=delete&id=${product.getIdProduct()}">Delete</a>--%>
                         </td>
                       </tr>
                     </c:forEach>
                     </tbody>
                   </table>
+                  <%--                  Phân trang--%>
+                  <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+
+                      <c:if test="${requestScope.currentPage != 1}">
+                        <li class="page-item"><a class="page-link" href="product?page=${requestScope.currentPage - 1}">Previous</a>
+                        </li>
+                      </c:if>
+                      <c:forEach begin="1" end="${noOfPages}" var="i">
+                        <c:choose>
+                          <c:when test="${requestScope.currentPage eq i}">
+                            <li class="page-item"><a class="page-link" href="product?page=${i}">${i}</a></li>
+                          </c:when>
+                          <c:otherwise>
+                            <li class="page-item"><a class="page-link" href="product?page=${i}">${i}</a></li>
+                          </c:otherwise>
+                        </c:choose>
+                      </c:forEach>
+                      <c:if test="${requestScope.currentPage lt requestScope.noOfPages}">
+                        <li class="page-item"><a class="page-link" href="product?page=${requestScope.currentPage + 1}">Next</a>
+                        </li>
+                      </c:if>
+                    </ul>
+                  </nav>
                 </div>
               </div>
             </div>
           </div>
-
-        <!--new product area start-->
-
-        <!--banner area start-->
-        <div class="banner_area banner_two">
-
+          <!--pos home section end-->
         </div>
-        <!--banner area end-->
-
-        <!--featured product area start-->
-
-        <!--featured product area start-->
-
-        <!--blog area start-->
-
-        <!--blog area end-->
-
-        <!--brand logo strat-->
-
-      <!--pos home section end-->
-    </div>
-    <!--pos page inner end-->
-  </div>
-</div>
-<!--pos page end-->
-
-<!--footer area start-->
-
-<!--footer area end-->
-
-<!-- modal area start -->
-<div class="modal fade" id="modal_box" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">×</span>
-      </button>
-      <div class="modal_body">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-5 col-md-5 col-sm-12">
-              <div class="modal_tab">
-                <div class="tab-content" id="pills-tabContent">
-                  <div class="tab-pane fade show active" id="tab1" role="tabpanel">
-                    <div class="modal_tab_img">
-                      <a href="#"><img src="/assets\img\product\product13.jpg" alt=""></a>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="tab2" role="tabpanel">
-                    <div class="modal_tab_img">
-                      <a href="#"><img src="/assets\img\product\product14.jpg" alt=""></a>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="tab3" role="tabpanel">
-                    <div class="modal_tab_img">
-                      <a href="#"><img src="/assets\img\product\product15.jpg" alt=""></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal_tab_button">
-                  <ul class="nav product_navactive" role="tablist">
-                    <li>
-                      <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false"><img src="/assets\img\cart\cart17.jpg" alt=""></a>
-                    </li>
-                    <li>
-                      <a class="nav-link" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false"><img src="/assets\img\cart\cart18.jpg" alt=""></a>
-                    </li>
-                    <li>
-                      <a class="nav-link button_three" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false"><img src="/assets\img\cart\cart19.jpg" alt=""></a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-7 col-md-7 col-sm-12">
-              <div class="modal_right">
-                <div class="modal_title mb-10">
-                  <h2>Handbag feugiat</h2>
-                </div>
-                <div class="modal_price mb-10">
-                  <span class="new_price">$64.99</span>
-                  <span class="old_price">$78.99</span>
-                </div>
-                <div class="modal_content mb-10">
-                  <p>Short-sleeved blouse with feminine draped sleeve detail.</p>
-                </div>
-                <div class="modal_size mb-15">
-                  <h2>size</h2>
-                  <ul>
-                    <li><a href="#">s</a></li>
-                    <li><a href="#">m</a></li>
-                    <li><a href="#">l</a></li>
-                    <li><a href="#">xl</a></li>
-                    <li><a href="#">xxl</a></li>
-                  </ul>
-                </div>
-                <div class="modal_add_to_cart mb-15">
-                  <form action="#">
-                    <input min="0" max="100" step="2" value="1" type="number">
-                    <button type="submit">add to cart</button>
-                  </form>
-                </div>
-                <div class="modal_description mb-15">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
-                </div>
-                <div class="modal_social">
-                  <h2>Share this product</h2>
-                  <ul>
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!--pos page inner end-->
       </div>
     </div>
-  </div>
+    <!--pos page end-->
+
+    <!--footer area start-->
+
+    <!--footer area end-->
+
+    <!-- modal area start -->
+   <jsp:include page="/WEB-INF/layout/modal_area_start.jsp"></jsp:include>
+    <!-- modal area end -->
+    <!-- all js here -->
+    <jsp:include page="/WEB-INF/layout/all_js_here.jsp"></jsp:include>
+    <!-- Code injected by live-server -->
 </div>
-
-<!-- modal area end -->
-
-
-
-
-<!-- all js here -->
-<script src="/assets\js\vendor\jquery-1.12.0.min.js"></script>
-<script src="/assets\js\popper.js"></script>
-<script src="/assets\js\bootstrap.min.js"></script>
-<script src="/assets\js\ajax-mail.js"></script>
-<script src="/assets\js\plugins.js"></script>
-<script src="/assets\js\main.js"></script>
-<!-- Code injected by live-server -->
-
-
-
-<!-- Code injected by live-server -->
-
-
-
 </body>
 </html>

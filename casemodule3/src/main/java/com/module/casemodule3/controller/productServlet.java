@@ -69,7 +69,11 @@ public class productServlet extends HttpServlet {
                 showDetailProduct(req,resp);
                 break;
             default:
-                showListProduct(req, resp);
+                try {
+                    showListProduct(req, resp);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
         }
     }
 
@@ -92,7 +96,6 @@ public class productServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-
     private void showDeleteForm(HttpServletRequest req, HttpServletResponse resp) {
         try {
             listColor = colorService.selectAllColor();
@@ -152,8 +155,39 @@ public class productServlet extends HttpServlet {
 
     }
 
-    private void showListProduct(HttpServletRequest req, HttpServletResponse resp) {
-        List<Product> listProduct = this.productService.selectAllProduct();
+//    private void showListProduct(HttpServletRequest req, HttpServletResponse resp) {
+//        List<Product> listProduct = this.productService.selectAllProduct();
+//        listColor = colorService.selectAllColor();
+//        System.out.println(listColor);
+//        listSize = sizeService.selectAllSize();
+//        listCategory = categoryService.selectAllCategory();
+//        req.setAttribute("listProduct", listProduct);
+//        req.setAttribute("listColor", listColor);
+//        req.setAttribute("listSize", listSize);
+//        req.setAttribute("listCategory", listCategory);
+//        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/product/list.jsp");
+//        try {
+//            requestDispatcher.forward(req, resp);
+//        } catch (ServletException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+    private void showListProduct(HttpServletRequest req, HttpServletResponse resp) throws SQLException {
+        int page = 1;
+        int recordsPerPage = 6;
+        String search ="";
+        if (req.getParameter("page") != null) {
+            page = Integer.parseInt(req.getParameter("page"));
+        }
+        if (req.getParameter("search") != null){
+            search = req.getParameter("search");
+        }
+//        List<Product> listProduct = this.productService.selectAllProduct();
+        List<Product> listProduct = productService.selecAllProduct((page - 1) * recordsPerPage, recordsPerPage,search);
+        int noOfRecords = productService.getNoOfRecords();
+        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
         listColor = colorService.selectAllColor();
         System.out.println(listColor);
         listSize = sizeService.selectAllSize();
@@ -162,6 +196,9 @@ public class productServlet extends HttpServlet {
         req.setAttribute("listColor", listColor);
         req.setAttribute("listSize", listSize);
         req.setAttribute("listCategory", listCategory);
+        req.setAttribute("noOfPages", noOfPages);
+        req.setAttribute("currentPage", page);
+        req.setAttribute("search",search);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/product/list.jsp");
         try {
             requestDispatcher.forward(req, resp);
@@ -245,14 +282,24 @@ public class productServlet extends HttpServlet {
         int id = Integer.parseInt(req.getParameter("id"));
         Product product = this.productService.selectProduct(id);
         if (product == null) {
-            requestDispatcher = req.getRequestDispatcher("/");
+            requestDispatcher = req.getRequestDispatcher("/WEB-INF/product/error.jsp");
         } else {
             String name = req.getParameter("name");
             product.setName(name);
-            double price = Double.parseDouble(req.getParameter("price"));
-            product.setPrice(price);
-            int quantity = Integer.parseInt(req.getParameter("quantity"));
-            product.setQuantity(quantity);
+            String priceTest = req.getParameter("price");
+            if(priceTest == null) {
+                errors.add("Price can not empty");
+            }else {
+                double price = Double.parseDouble(req.getParameter("price"));
+                product.setPrice(price);
+            }
+            String quantityTest = req.getParameter("quantity");
+            if (quantityTest == null) {
+                errors.add("Quantity can not empty");
+            } else {
+                int quantity = Integer.parseInt(req.getParameter("quantity"));
+                product.setQuantity(quantity);
+            }
             int color = Integer.parseInt(req.getParameter("idcolor"));
             product.setIdColor(color);
             int size = Integer.parseInt(req.getParameter("idsize"));
@@ -287,22 +334,18 @@ public class productServlet extends HttpServlet {
                                 part.write(servletRealPath);
                                 product.setImage("images/" + fileName);
                                 part.write(this.getFolderUpload().getAbsolutePath() + File.separator + fileName);
-//                String servletRealPath = this.getServletContext().getRealPath("/") + "\\images\\" + fileName;
-//                System.out.println("servletRealPath: " + servletRealPath);
-//                part.write(servletRealPath);
-//                part.write(this.getFolderUpload().getAbsolutePath() + File.separator+fileName);
-//                newUser.setUrlImage("images\\" + fileName);
                             }
                         }
                     }
                             productService.updateProduct(product);
+                            req.setAttribute("message","Edit was successed");
                             req.setAttribute("listColor", listColor);
                             req.setAttribute("listSize", listSize);
                             req.setAttribute("listCategory", listCategory);
 
                         } else {
                             errors.add("Product type is not available");
-                            req.setAttribute("error", errors);
+                            req.setAttribute("errors", errors);
                             req.setAttribute("listColor", listColor);
                             req.setAttribute("listSize", listSize);
                             req.setAttribute("listCategory", listCategory);
@@ -314,17 +357,30 @@ public class productServlet extends HttpServlet {
     }
 
     private void createProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher;
         List<String> errors = new ArrayList<>();
         Product product = new Product();
         listColor = this.colorService.selectAllColor();
         listSize = this.sizeService.selectAllSize();
         listCategory = this.categoryService.selectAllCategory();
+        try {
             String name = req.getParameter("name");
             product.setName(name);
-            double price = Double.parseDouble(req.getParameter("price"));
-            product.setPrice(price);
-            int quantity = Integer.parseInt(req.getParameter("quantity"));
-            product.setQuantity(quantity);
+            String priceTest= req.getParameter("price");
+            System.out.println(priceTest);
+            if (priceTest.isEmpty()) {
+                errors.add("Price can not empty");
+            } else {
+                double price = Double.parseDouble(req.getParameter("price"));
+                product.setPrice(price);
+            }
+            String quantityTest = req.getParameter("quantity");
+            if (quantityTest.isEmpty()) {
+                errors.add("Quantity can not be empty");
+            } else {
+                int quantity = Integer.parseInt(req.getParameter("quantity"));
+                product.setQuantity(quantity);
+            }
             int color = Integer.parseInt(req.getParameter("idcolor"));
             product.setIdColor(color);
             int size = Integer.parseInt(req.getParameter("idsize"));
@@ -339,7 +395,8 @@ public class productServlet extends HttpServlet {
                 for (ConstraintViolation<Product> item : constraintViolations) {
                     errors.add(item.getMessage());
                 }
-                req.setAttribute("error", errors);
+                req.setAttribute("errors", errors);
+                req.setAttribute("product",product);
                 req.setAttribute("listColor", listColor);
                 req.setAttribute("listSize", listSize);
                 req.setAttribute("listCategory", listCategory);
@@ -358,32 +415,38 @@ public class productServlet extends HttpServlet {
                                 part.write(servletRealPath);
                                 product.setImage("images/" + fileName);
                                 part.write(this.getFolderUpload().getAbsolutePath() + File.separator + fileName);
-//                String servletRealPath = this.getServletContext().getRealPath("/") + "\\images\\" + fileName;
-//                System.out.println("servletRealPath: " + servletRealPath);
-//                part.write(servletRealPath);
-//                part.write(this.getFolderUpload().getAbsolutePath() + File.separator+fileName);
-//                newUser.setUrlImage("images\\" + fileName);
                             } else {
                                 product.setImage("no img");
                             }
                         }
                     }
-
                     productService.insertProduct(product);
+                    req.setAttribute("message","Product was added successly");
                     req.setAttribute("listColor", listColor);
                     req.setAttribute("listSize", listSize);
                     req.setAttribute("listCategory", listCategory);
-
-                }else {
-                        errors.add("Product type is not available");
-                        req.setAttribute("error", errors);
-                        req.setAttribute("listColor", listColor);
-                        req.setAttribute("listSize", listSize);
-                        req.setAttribute("listCategory", listCategory);
-                    }
+                } else {
+                    errors.add("Product type is not available");
+                    req.setAttribute("errors", errors);
+                    req.setAttribute("listColor", listColor);
+                    req.setAttribute("listSize", listSize);
+                    req.setAttribute("listCategory", listCategory);
                 }
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/product/create.jsp");
-        requestDispatcher.forward(req, resp);
+            }
+            requestDispatcher = req.getRequestDispatcher("/WEB-INF/product/create.jsp");
+            requestDispatcher.forward(req, resp);
+        }catch (NumberFormatException numberFormatException) {
+            errors.add("Input format");
+            req.setAttribute("errors", errors);
+            req.setAttribute("product", product);
+            req.setAttribute("listColor", listColor);
+            req.setAttribute("listSize", listSize);
+            req.setAttribute("listCategory", listCategory);
+            requestDispatcher = req.getRequestDispatcher("/WEB-INF/product/create.jsp");
+            requestDispatcher.forward(req, resp);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 

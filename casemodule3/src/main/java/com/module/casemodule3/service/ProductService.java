@@ -9,12 +9,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductService implements IProductService{
+    public int noOfRecords;
+    public int getNoOfRecords() {
+        return noOfRecords;
+    }
+
     private static final String INSERT_PRODUCT = "INSERT INTO `product` (`name`, `price`, `quantity`, `idcolor`, `idsize`, `idcategory`, `create_datetime`, `image`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SELECT_ALL_PRODUCT = "SELECT * FROM product";
     private static final String SELECT_PRODUCT_BY_ID = "SELECT * FROM product WHERE idproduct =?";
 
     private static final String UPDATE_PRODUCT = "UPDATE `product` SET `name` = ?, `price` = ?, `quantity` = ?, `idcolor` = ?, `idsize` = ?, `idcategory` = ?, `update_datetime` = ?, `image`=? WHERE (`idproduct` = ?);";
-    private static final String DELETE_PRODUCT_BY_ID ="DELETE FROM product WHERE idproduct= ?" ;
+    private static final String DELETE_PRODUCT_BY_ID ="DELETE FROM product WHERE idproduct= ?";
+
     private String jdbcURL = "jdbc:mysql://localhost:3306/shoe_shop?useSSL=false";
     private String jdbcUsername = "root";
     private String jdbcPassword = "12345678";
@@ -33,6 +39,7 @@ public class ProductService implements IProductService{
         }
         return connection;
     }
+
 
     @Override
     public void insertProduct(Product product) {
@@ -152,4 +159,36 @@ public class ProductService implements IProductService{
         }
         return check;
     }
+
+    @Override
+    public List<Product> selecAllProduct(int offset, int noOfRecords, String search) throws SQLException {
+        Connection connection = getConnection();
+        List<Product> listProduct = new ArrayList<>();
+        String query = "SELECT SQL_CALC_FOUND_ROWS * FROM product where name like ? limit " + offset + "," + noOfRecords;
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setString(1, "%" + search + "%");
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            int id = rs.getInt("idproduct");
+            String name = rs.getString("name");
+            double price = rs.getDouble("price");
+            int quantity =rs.getInt("quantity");
+            int idColor= rs.getInt("idcolor");
+            int idSize = rs.getInt("idsize");
+            int idCategory = rs.getInt("idcategory");
+            Date createDateTime = rs.getDate("create_datetime");
+            Date updateDateTime = rs.getDate("update_datetime");
+            String image = rs.getString("image");
+            listProduct.add(new Product(id,name,price,quantity,idColor,idSize, idCategory,createDateTime,updateDateTime,image));
+
+
+        }
+        rs = ps.executeQuery("SELECT FOUND_ROWS()");
+        if (rs.next()) {
+            this.noOfRecords = rs.getInt(1);
+        }
+        connection.close();
+        return listProduct;
+    }
+
 }

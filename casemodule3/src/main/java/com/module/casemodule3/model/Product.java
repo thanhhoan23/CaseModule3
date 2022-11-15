@@ -2,10 +2,7 @@ package com.module.casemodule3.model;
 
 import org.hibernate.validator.constraints.Length;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.util.Date;
 
 public class Product {
@@ -61,7 +58,6 @@ public class Product {
     public void setImage(String image) {
         this.image = image;
     }
-    @NotNull
     @Min(value = 1000,message ="Price can be more than 1000")
     @Max(value = 10000000, message = "Price can be less than 10000000")
     public double getPrice() {
@@ -71,9 +67,8 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
-    @NotNull
-    @Min(value = 0,message = "Quantity cannot be less than 0")
-    @Max(value = 100000, message = "Quantity can be less than 100000")
+    @Min(value = 1,message = "Quantity cannot be less than 1")
+    @Max(value = 100, message = "Quantity can be less than 100")
     public int getQuantity() {
         return quantity;
     }
@@ -81,7 +76,7 @@ public class Product {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    @NotNull
+    @NotNull(message = "Color can not be empty")
     public int getIdColor() {
         return idColor;
     }
@@ -89,7 +84,7 @@ public class Product {
     public void setIdColor(int idColor) {
         this.idColor = idColor;
     }
-    @NotNull
+    @NotNull(message = "Size can not be empty")
     public int getIdSize() {
         return idSize;
     }
@@ -97,7 +92,7 @@ public class Product {
     public void setIdSize(int idSize) {
         this.idSize = idSize;
     }
-    @NotNull
+    @NotNull(message = "Category can not be empty")
     public int getIdCategory() {
         return idCategory;
     }
