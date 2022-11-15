@@ -142,6 +142,7 @@ public class ProductService implements IProductService{
             preparedStatement.setInt(6, product.getIdCategory());
             preparedStatement.setDate(7,Date.valueOf(LocalDate.now()));
             preparedStatement.setString(8,product.getImage());
+            preparedStatement.setInt(9,product.getIdProduct());
             System.out.println(this.getClass() + "update" + preparedStatement);
             check = preparedStatement.executeUpdate()>0;
             connection.close();
