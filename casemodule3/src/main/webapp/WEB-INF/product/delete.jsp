@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Coron - Fashion eCommerce Bootstrap4 Template</title>
+  <title>Delete Product</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Favicon -->
@@ -38,9 +38,9 @@
         <div class="new_product_area product_two">
           <div class="row">
             <div class="col-12">
-              <h3> <p>
-                <a href="/product">Back to the list product</a>
-              </p></h3>
+              <h3> <button type="button" class="btn btn-info"><a href="/product">Back to the list product</a></button>
+
+              </h3>
               <div class="row">
                 <div class="col-md-12">
                   <div class="card card-border-color card-border-color-primary">
@@ -119,7 +119,7 @@
                                 <input type="file" name="file" onchange="loadFile(event)">
                               </td>
                               <td>
-                                <img src="${product.getImage()}" alt="" id="output">
+                                <img src="${product.getImage()}" alt="" id="output" style="width: 300px">
                               </td>
                             </tr>
 
@@ -127,11 +127,10 @@
                           <div>
                             <tr>
                               <td class="p-md-4">
-                                <input type="submit" value="Delete Product">
+                                <input type="submit" value="Delete Product" class="bg-dark">
                               </td>
                             </tr>
                           </div>
-
                         </table>
                       </form>
                     </div>

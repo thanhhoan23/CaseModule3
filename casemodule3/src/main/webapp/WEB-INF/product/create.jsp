@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Coron - Fashion eCommerce Bootstrap4 Template</title>
+    <title>Create Product</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
@@ -34,20 +34,20 @@
                 <!--banner slider start-->
                 <jsp:include page="/WEB-INF/layout/bannarstart.jsp"></jsp:include>
                 <%--san pham--%>
-                <h3>Add New Product</h3>
+                <h3 style="margin-left: 25px">Add New Product</h3>
                 <!--new product area start-->
                 <div class="new_product_area product_two">
                     <div class="row form-control">
                         <div class="col-12">
-                            <a class="btn btn-dark" href="/product">Back to the list product</a>
-                            <c:if test="${requestScope.message != null}">
-                                <div class="row bg-primary">
-                                    <h4>${message}</h4>
-                                </div>
-                            </c:if>
+                            <div class="row" style="margin-left: 25px">
+                                <button type="button" class="btn btn-info"><a href="/product">Back to list product</a></button>
 
+                                <c:if test="${requestScope.message != null}">
+                                    <h6>${message}</h6>
+                                </c:if>
+                            </div>
                             <div class="row">
-                                <div class="card-body col-7">
+                                <div class="card-body col-8">
                                     <form method="post" enctype="multipart/form-data">
                                         <table>
                                             <tr>
@@ -173,12 +173,13 @@
                                         </table>
                                     </form>
                                 </div>
-                                <div class="card-body col-5">
+                                <div class="card-body col-4">
                                     <c:if test="${requestScope.errors != null}">
+                                        <p>WARNING</p>
                                         <ul>
                                             <c:forEach items="${requestScope.errors}" var="error">
                                                 <li>
-                                                    <p>${error}</p>
+                                                    <p style="color:red">${error}</p>
                                                 </li>
                                             </c:forEach>
                                         </ul>
@@ -187,20 +188,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!--new product area start-->
-
-                    <!--banner area start-->
-                    <!--banner area end-->
-
-                    <!--featured product area start-->
-
-                    <!--featured product area start-->
-
-                    <!--blog area start-->
-
-                    <!--blog area end-->
-
                     <!--brand logo strat-->
                    <jsp:include page="/WEB-INF/layout/brand_logo_strat.jsp"></jsp:include>
                     <!--brand logo end-->
@@ -211,16 +198,8 @@
         </div>
     </div>
     <!--pos page end-->
-
-    <!--footer area start-->
-
-    <!--footer area end-->
-
     <!-- modal area start -->
     <jsp:include page="/WEB-INF/layout/modal_area_start.jsp"></jsp:include>
-
-    <!-- modal area end -->
-
 
     <!-- all js here -->
     <jsp:include page="/WEB-INF/layout/all_js_here.jsp"></jsp:include>

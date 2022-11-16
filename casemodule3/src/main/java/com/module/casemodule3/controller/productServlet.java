@@ -176,7 +176,7 @@ public class productServlet extends HttpServlet {
 //    }
     private void showListProduct(HttpServletRequest req, HttpServletResponse resp) throws SQLException {
         int page = 1;
-        int recordsPerPage = 6;
+        int recordsPerPage = 5;
         String search ="";
         if (req.getParameter("page") != null) {
             page = Integer.parseInt(req.getParameter("page"));
@@ -287,14 +287,14 @@ public class productServlet extends HttpServlet {
             String name = req.getParameter("name");
             product.setName(name);
             String priceTest = req.getParameter("price");
-            if(priceTest == null) {
+            if(priceTest.isEmpty()) {
                 errors.add("Price can not empty");
             }else {
                 double price = Double.parseDouble(req.getParameter("price"));
                 product.setPrice(price);
             }
             String quantityTest = req.getParameter("quantity");
-            if (quantityTest == null) {
+            if ((quantityTest.isEmpty())||quantityTest==null) {
                 errors.add("Quantity can not empty");
             } else {
                 int quantity = Integer.parseInt(req.getParameter("quantity"));
@@ -311,11 +311,12 @@ public class productServlet extends HttpServlet {
             ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
             Validator validator = validatorFactory.getValidator();
             Set<ConstraintViolation<Product>> constraintViolations = validator.validate(product);
-            if (!constraintViolations.isEmpty()) {
+            if ((!constraintViolations.isEmpty()) || !errors.isEmpty()) {
                 for (ConstraintViolation<Product> item : constraintViolations) {
                     errors.add(item.getMessage());
                 }
                 req.setAttribute("errors", errors);
+                req.setAttribute("product",product);
                 req.setAttribute("listColor", listColor);
                 req.setAttribute("listSize", listSize);
                 req.setAttribute("listCategory", listCategory);
@@ -330,9 +331,9 @@ public class productServlet extends HttpServlet {
                                 // refines the fileName in case it is an absolute path
                                 fileName = new File(fileName).getName();
                                 part.write("/Users/nguyenthithanhhoan/Downloads/workspace/CaseModule3/casemodule3/src/main/webapp/images/" + fileName);
-                                String servletRealPath = this.getServletContext().getRealPath("/") + "images\\" + fileName;
+                                String servletRealPath = this.getServletContext().getRealPath("/") + "images/" + fileName;
                                 part.write(servletRealPath);
-                                product.setImage("images/" + fileName);
+                                product.setImage("/images/" + fileName);
                                 part.write(this.getFolderUpload().getAbsolutePath() + File.separator + fileName);
                             }
                         }
@@ -411,12 +412,11 @@ public class productServlet extends HttpServlet {
                                 // refines the fileName in case it is an absolute path
                                 fileName = new File(fileName).getName();
                                 part.write("/Users/nguyenthithanhhoan/Downloads/workspace/CaseModule3/casemodule3/src/main/webapp/images/" + fileName);
-                                String servletRealPath = this.getServletContext().getRealPath("/") + "images\\" + fileName;
+                                String servletRealPath = this.getServletContext().getRealPath("/") + "images/" + fileName;
                                 part.write(servletRealPath);
-                                product.setImage("images/" + fileName);
-                                part.write(this.getFolderUpload().getAbsolutePath() + File.separator + fileName);
+                                product.setImage("/images/" + fileName);
                             } else {
-                                product.setImage("no img");
+                                product.setImage("/images/noproduct.png");
                             }
                         }
                     }

@@ -1,21 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html class="no-js" lang="zxx">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Coron - Fashion eCommerce Bootstrap4 Template</title>
+  <title>List Shoes</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="/assets\img\favicon.png">
   <style>
-    /*.table>thead>tr {*/
-    /*  background-color:darkslategray;*/
-    /*  color: white;*/
-    /*}*/
     .table>tbody>tr:hover {
       background-color: darkgrey;
       cursor: pointer;
@@ -69,7 +65,7 @@
                     <tr>
                       <th>Id</th>
                       <th>Name</th>
-                      <th>Price</th>
+                      <th>Price (vnd)</th>
                       <th>Quantity</th>
                       <th>Color</th>
                       <th>Size</th>
@@ -85,7 +81,7 @@
                       <tr>
                         <td><c:out value="${product.getIdProduct()}"/></td>
                         <td><c:out value="${product.getName()}"/></td>
-                        <td class="text-right"><c:out value="${product.getPrice()}"/></td>
+                        <td class="text-center"><fmt:formatNumber pattern="#,##0" value="${product.getPrice()}" /></td>
                         <td class="text-center"><c:out value="${product.getQuantity()}"/></td>
 
                         <c:forEach items="${requestScope['listColor']}" var="color">
@@ -105,13 +101,14 @@
                             <td>${category.getTypeProduct()}</td>
                           </c:if>
                         </c:forEach>
-                        <td class="text-right"><c:out value="${product.getCreateTimeDate()}"/></td>
-                        <td class="text-right"><c:out value="${product.getUpdateTimeDate()}"/></td>
+                        <td class="text-center">
+                          <fmt:formatDate pattern="dd-MM-yyyy" value="${product.getCreateTimeDate()}" /></td>
+                        <td class="text-center"> <fmt:formatDate pattern="dd-MM-yyyy" value="${product.getUpdateTimeDate()}" /></td>
                           <%--                        <td><c:out value="${product.getImage()}"/></td>--%>
                         <td>
-                          <img style="height: 20px" src="${product.getImage()}">
+                          <img style="height: 100px;width: 100px" src="${product.getImage()}">
                         </td>
-                        <td>
+                        <td class="text-right">
                           <button type="button" style="width:70px" class="btn btn-success m-2"> <a style="color:white" href="/product?action=edit&id=${product.getIdProduct()}">Edit</a></button>
                             <%--                          <a href="/product?action=edit&id=${product.getIdProduct()}">Edit</a>--%>
                           <button type="button" class="btn btn-danger"><a style="color: white" href="/product?action=delete&id=${product.getIdProduct()}">Delete</a></button>
