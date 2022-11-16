@@ -63,7 +63,7 @@
                   <table class="table">
                     <thead>
                     <tr>
-                      <th>Id</th>
+<%--                      <th>Id</th>--%>
                       <th>Name</th>
                       <th>Price (vnd)</th>
                       <th>Quantity</th>
@@ -72,19 +72,19 @@
                       <th>Category</th>
                       <th>Create Date</th>
                       <th>Create Update</th>
-                      <th>Image</th>
+                      <th class="text-center">Image</th>
                       <th class="actions text-center">Action</th>
                     </tr>
                     </thead>
                     <tbody>
                     <c:forEach var="product" items="${listProduct}">
                       <tr>
-                        <td><c:out value="${product.getIdProduct()}"/></td>
+<%--                        <td><c:out value="${product.getIdProduct()}"/></td>--%>
                         <td><c:out value="${product.getName()}"/></td>
                         <td class="text-center"><fmt:formatNumber pattern="#,##0" value="${product.getPrice()}" /></td>
                         <td class="text-center"><c:out value="${product.getQuantity()}"/></td>
 
-                        <c:forEach items="${requestScope['listColor']}" var="color">
+                        <c:forEach items="${requestScope.listColor}" var="color">
                           <c:if test="${color.getIdColor() == product.getIdColor()}">
                             <td class="text-center">${color.getNameColor()}</td>
                           </c:if>
@@ -105,8 +105,8 @@
                           <fmt:formatDate pattern="dd-MM-yyyy" value="${product.getCreateTimeDate()}" /></td>
                         <td class="text-center"> <fmt:formatDate pattern="dd-MM-yyyy" value="${product.getUpdateTimeDate()}" /></td>
                           <%--                        <td><c:out value="${product.getImage()}"/></td>--%>
-                        <td>
-                          <img style="height: 100px;width: 100px" src="${product.getImage()}">
+                        <td class="text-center">
+                          <img style="height: 150px;width: 150px" src="${product.getImage()}">
                         </td>
                         <td class="text-right">
                           <button type="button" style="width:70px" class="btn btn-success m-2"> <a style="color:white" href="/product?action=edit&id=${product.getIdProduct()}">Edit</a></button>

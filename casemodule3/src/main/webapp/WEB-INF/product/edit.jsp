@@ -37,17 +37,17 @@
         <div class="new_product_area product_two" >
           <div class="row">
             <div class="col-12">
-              <h3 style="padding-left: 20px"> Edit Product</h3>
+              <h3 style="padding-left: 40px"> Edit Product</h3>
               <c:if test="${requestScope.message != null}">
                 <div class="row" style="width: 300px">
-                  <h4>${message}</h4>
+                  <h4 style="margin-left: 45px">${message}</h4>
                 </div>
               </c:if>
               <div class="row">
                 <div class="col-md-12">
                   <div class="card card-border-color card-border-color-primary">
                     <div class="card-header card-header-divider">
-                      <button type="button" class="btn btn-info"><a href="/product">Back to the list product</a></button>
+                      <button type="button" style="margin-left: 20px" class="btn btn-info"><a href="/product">Back to the list product</a></button>
                     </div>
                     <div class="card-body">
                       <div class="row">
@@ -127,7 +127,7 @@
                               </tr>
                               <tr>
                                 <td class="p-md-4">
-                                  <input type="submit" value="E dit Product" class="btn btn-dark">
+                                  <input type="submit" value="Edit Product" class="btn btn-dark">
                                 </td>
                               </tr>
 
@@ -149,29 +149,11 @@
                           </c:if>
                         </div>
                       </div>
-
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <!--new product area start-->
-
-          <!--banner area start-->
-
-          <!--banner area end-->
-
-          <!--featured product area start-->
-
-          <!--featured product area start-->
-
-          <!--blog area start-->
-
-          <!--blog area end-->
-
-          <!--brand logo strat-->
-
 <%--            brand_active--%>
            <jsp:include page="/WEB-INF/layout/brand_active.jsp"></jsp:include>
           </div>

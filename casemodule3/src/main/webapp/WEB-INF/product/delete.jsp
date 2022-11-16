@@ -38,16 +38,15 @@
         <div class="new_product_area product_two">
           <div class="row">
             <div class="col-12">
-              <h3> <button type="button" class="btn btn-info"><a href="/product">Back to the list product</a></button>
-
-              </h3>
               <div class="row">
                 <div class="col-md-12">
                   <div class="card card-border-color card-border-color-primary">
-                    <div class="card-header card-header-divider">Basic Elements<span class="card-subtitle">These are the basic bootstrap form elements</span></div>
+                    <div class="card-header card-header-divider"><span class="card-subtitle"> <h3> <button type="button" class="btn btn-info"><a href="/product">Back to the list product</a></button>
+
+              </h3></span></div>
                     <div class="card-body">
                       <form method="post"  enctype="multipart/form-data">
-                        <table class="row">
+                        <table class="row form-control">
                           <div class="col-lg-6">
                             <tr>
                               <th class="p-md-4">Name Product</th>
@@ -127,7 +126,7 @@
                           <div>
                             <tr>
                               <td class="p-md-4">
-                                <input type="submit" value="Delete Product" class="bg-dark">
+                                <input onclick="return confirm('Are you sure?')" type="submit" style="color: whitesmoke" value="Delete Product" class="bg-dark">
                               </td>
                             </tr>
                           </div>
