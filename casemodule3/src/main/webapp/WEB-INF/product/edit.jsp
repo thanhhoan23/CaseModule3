@@ -38,16 +38,21 @@
           <div class="row">
             <div class="col-12">
               <h3 style="padding-left: 40px"> Edit Product</h3>
-              <c:if test="${requestScope.message != null}">
-                <div class="row" style="width: 300px">
-                  <h4 style="margin-left: 45px">${message}</h4>
-                </div>
-              </c:if>
+<%--              <c:if test="${requestScope.message != null}">--%>
+<%--                <div class="row" style="width: 300px">--%>
+<%--                  <h4 style="margin-left: 45px">${message}</h4>--%>
+<%--                </div>--%>
+<%--              </c:if>--%>
               <div class="row">
                 <div class="col-md-12">
                   <div class="card card-border-color card-border-color-primary">
                     <div class="card-header card-header-divider">
                       <button type="button" style="margin-left: 20px" class="btn btn-info"><a href="/product">Back to the list product</a></button>
+                      <c:if test="${requestScope.message != null}">
+<%--                        <div class="row" style="width: 300px">--%>
+                          <h4 style="margin-left: 20px">${message}</h4>
+
+                      </c:if>
                     </div>
                     <div class="card-body">
                       <div class="row">
