@@ -16,6 +16,10 @@
       background-color: darkgrey;
       cursor: pointer;
     }
+    .table td, .table th {
+        vertical-align: middle;
+        border-top: 1px solid #e9ecef;
+    }
   </style>
 
   <!-- all css here -->
@@ -35,7 +39,7 @@
       <!--header end -->
 
       <!--pos home section-->
-      <div class="pos_home_section">
+      <div class="pos_home_section container-fluid">
 <%--        banner start--%>
         <jsp:include page="/WEB-INF/layout/bannarstart.jsp"></jsp:include>
 
@@ -60,7 +64,7 @@
 
               </div>
                 <div class="card-body">
-                  <table class="table">
+                  <table class="table table-hover">
                     <thead>
                     <tr>
 <%--                      <th>Id</th>--%>
